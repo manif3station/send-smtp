@@ -1,0 +1,7 @@
+requires 'Email::Address::XS';
+requires 'Email::MIME';
+requires 'Email::Sender::Simple';
+requires 'Email::Sender::Transport::SMTP::TLS';
+requires 'File::MimeInfo::Magic';
+requires 'MIME::Types';
+requires 'Try::Tiny';
