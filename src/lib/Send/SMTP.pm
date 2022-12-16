@@ -64,6 +64,7 @@ sub email {
     my $to         = $info{to}   or die "Missing send to";
     my $cc         = $info{cc};
     my $bcc        = $info{bcc};
+    my $replyto    = $info{replyto};
     my $subject    = $info{subject};
     my $text       = $info{text};
     my $html       = $info{html};
@@ -81,8 +82,9 @@ sub email {
         header_str => [
             From => $from,
             To   => $to,
-            ( Cc  => $cc ) x !!$cc,
-            ( Bcc => $bcc ) x !!$bcc,
+            ( Cc         => $cc ) x !!$cc,
+            ( Bcc        => $bcc ) x !!$bcc,
+            ( 'Reply-To' => $replyto ) x !!$replyto,
             Subject => $subject,
         ],
         parts => [ ($text) x !!$text, ($html) x !!$html, @parts, ]
